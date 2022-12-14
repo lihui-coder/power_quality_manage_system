@@ -9,5 +9,4 @@ public class PowerQualityManageSystemApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PowerQualityManageSystemApplication.class, args);
 	}
-
 }
