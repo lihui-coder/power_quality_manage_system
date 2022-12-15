@@ -1,26 +1,42 @@
 package com.example.power_quality_manage_system.entity;
 
 public class Student {
+    private Integer id;
+
     private String name;
     private int age;
 
-    public String  getName(){
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
         return name;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
-    public Integer  getAge(){
+
+    public int getAge() {
         return age;
     }
-    public void setAge(int age){
+
+    public void setAge(int age) {
         this.age = age;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Student{" +
-                "Name=" + name +
-                ", Age=" + age + "}";
+                "id=" + id +
+                "name=" + name + + '\'' +
+                ", age='" + age + '\'' +
+                '}';
     }
+
 }

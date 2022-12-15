@@ -1,15 +1,29 @@
 package com.example.power_quality_manage_system.controller;
 
 import com.example.power_quality_manage_system.entity.Student;
-import jakarta.servlet.http.HttpServletRequest;
+import com.example.power_quality_manage_system.mapper.StudentMapper;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 public class testController {
+
+    @Autowired
+    StudentMapper stuMapper;
+    @GetMapping("/student")
+    public List<Student> getStudent(){
+        List<Student> stulist = stuMapper.find();
+        System.out.println(stulist);
+        return stulist;
+    }
+
+
     @RequestMapping(value = "/test1", method = RequestMethod.GET)
     public String test1(@RequestParam(value = "nickname", required = false) String name, Integer age){
         System.out.println(name);
@@ -31,6 +45,12 @@ public class testController {
         System.out.println(path);
         saveFile(path, photo);
         return "上传成功";
+    }
+
+//    restful风格
+    @GetMapping("/user/{id}")
+    public String getUserById(@PathVariable int id){
+        return "restful" + id;
     }
 
 //    这个请求被拦截
